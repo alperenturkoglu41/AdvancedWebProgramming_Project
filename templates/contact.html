@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section id="contact" class="contact section light-background">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>İletişim</h2>
+    <p>Görüşme, iş birliği ve profesyonel bağlantı için ulaşım bilgileri.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
+      <div class="row gy-5">
+        <div class="col-lg-4">
+          <div class="info-item d-flex align-items-center">
+            <i class="bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Konum</h3>
+              <p>{{ contact_info.location }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="info-item d-flex align-items-center">
+            <i class="bi bi-building flex-shrink-0"></i>
+            <div>
+              <h3>Bağlı Kurum</h3>
+              <p>{{ contact_info.institution }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="info-item d-flex align-items-center">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>E-posta</h3>
+              <p>{{ contact_info.email }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" action="mailto:{{ contact_info.email }}" method="post" enctype="text/plain" data-aos="fade-up" data-aos-delay="300">
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <input type="text" name="Ad Soyad" class="form-control" placeholder="Ad Soyad" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" name="E-posta" class="form-control" placeholder="E-posta" required>
+        </div>
+        <div class="col-md-12">
+          <input type="text" name="Konu" class="form-control" placeholder="Konu" required>
+        </div>
+        <div class="col-md-12">
+          <textarea class="form-control" name="Mesaj" rows="6" placeholder="Mesaj" required></textarea>
+        </div>
+        <div class="col-md-12 text-center">
+          <button type="submit">Mesaj Gönder</button>
+        </div>
+      </div>
+    </form>
+
+    {% if social_links %}
+    <div class="social-links d-flex justify-content-center mt-4">
+      {% for link in social_links %}
+      <a href="{{ link.url }}" aria-label="{{ link.label }}"><i class="{{ link.icon }}"></i></a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

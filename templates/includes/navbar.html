@@ -1,0 +1,21 @@
+{% load static %}
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <a href="/" class="logo d-flex align-items-center">
+      <img src="{% get_media_prefix %}img/btm-logo.png" alt="BTMteknik logosu">
+      <h1 class="sitename">{{ profile.full_name }}</h1>
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="/" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Ana Sayfa</a></li>
+        <li><a href="/#about">Hakkımda</a></li>
+        <li><a href="/#resume">Eğitim ve Deneyim</a></li>
+        <li><a href="/#services">Yetkinlikler</a></li>
+        <li><a href="/#portfolio">Çalışmalar</a></li>
+        <li><a href="/contact/" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">İletişim</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>

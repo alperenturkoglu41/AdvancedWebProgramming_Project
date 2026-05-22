@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.git/
+staticfiles/
+DevFolio/
+text /
+devfolio-preview.png
